@@ -111,6 +111,15 @@ class SQLiteWriter:
             ).fetchall()
         return [dict(r) for r in rows]
 
+    def get_node_readings(self, node_id: str, limit: int = 100) -> list:
+        with self._lock, self._conn() as conn:
+            conn.row_factory = sqlite3.Row
+            rows = conn.execute(
+                "SELECT * FROM sensor_readings WHERE node_id=? ORDER BY timestamp DESC LIMIT ?",
+                (node_id, limit)
+            ).fetchall()
+        return [dict(r) for r in rows]
+
     def get_active_alerts(self) -> list:
         with self._lock, self._conn() as conn:
             conn.row_factory = sqlite3.Row

@@ -2,11 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import FireMap from "./components/Map";
 import AlertPanel from "./components/AlertPanel";
 import SensorPanel from "./components/SensorPanel";
+import SensorReadingsPage from "./pages/SensorReadingsPage";
 import { fetchAlerts, fetchRiskMap, fetchSystemStatus, connectWebSocket } from "./services/api";
 
 const POLL_MS = 10000;
 
 export default function App() {
+  const [page, setPage] = useState("dashboard");
   const [nodes, setNodes] = useState([]);
   const [alerts, setAlerts] = useState([]);
   const [status, setStatus] = useState({});
@@ -29,22 +31,24 @@ export default function App() {
     }
   };
 
+  // ALL hooks must be called unconditionally before any early return
   useEffect(() => {
     refresh();
     const interval = setInterval(refresh, POLL_MS);
-
-    // Prefer WebSocket for live updates
     wsRef.current = connectWebSocket((msg) => {
       if (msg.type === "snapshot" && msg.nodes) {
         setNodes(msg.nodes);
       }
     });
-
     return () => {
       clearInterval(interval);
       if (wsRef.current) wsRef.current.close();
     };
   }, []);
+
+  if (page === "sensor-readings") {
+    return <SensorReadingsPage onBack={() => setPage("dashboard")} />;
+  }
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", background: "#0f1117" }}>
@@ -64,12 +68,29 @@ export default function App() {
             </div>
           </div>
         </div>
-        <div style={{ color: "#aaa", fontSize: 12 }}>
-          {lastUpdate ? `Updated: ${lastUpdate}` : "Loading..."}
-          &nbsp;|&nbsp;
-          <span style={{ color: status.kafka_connected ? "#00e676" : "#f44336" }}>
-            {status.kafka_connected ? "● LIVE" : "○ OFFLINE"}
-          </span>
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <button
+            onClick={() => setPage("sensor-readings")}
+            style={{
+              background: "#1e2d42",
+              border: "1px solid #ff6d00",
+              color: "#ff6d00",
+              padding: "6px 14px",
+              borderRadius: 6,
+              cursor: "pointer",
+              fontSize: 12,
+              fontWeight: 600,
+            }}
+          >
+            📊 Live Sensor Data
+          </button>
+          <div style={{ color: "#aaa", fontSize: 12 }}>
+            {lastUpdate ? `Updated: ${lastUpdate}` : "Loading..."}
+            &nbsp;|&nbsp;
+            <span style={{ color: status.kafka_connected ? "#00e676" : "#f44336" }}>
+              {status.kafka_connected ? "● LIVE" : "○ OFFLINE"}
+            </span>
+          </div>
         </div>
       </header>
 

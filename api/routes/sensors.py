@@ -1,5 +1,5 @@
 from typing import List, Optional
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, HTTPException, Query
 from api.schemas import NodeStatus, SensorReading
 
 router = APIRouter(prefix="/sensors", tags=["sensors"])
@@ -27,6 +27,34 @@ async def get_recent_readings(limit: int = Query(100, le=500)):
     if db:
         return db.get_recent_readings(limit=limit)
     return []
+
+
+@router.get("/readings/node/{node_id}", response_model=List[dict])
+async def get_node_readings(node_id: str, limit: int = Query(100, le=500)):
+    """Return historical readings for a specific node from SQLite (newest first)."""
+    from api.main import state
+    db = state.get("sqlite")
+    if db:
+        return db.get_node_readings(node_id=node_id, limit=limit)
+    return []
+
+
+@router.get("/live-readings", response_model=List[dict])
+async def get_live_readings():
+    """Return the latest full sensor reading for every online node.
+    Includes temperature, humidity, smoke index, CO ppm, VOC, wind, fire risk."""
+    from api.main import state
+    return list(state["live_readings"].values())
+
+
+@router.get("/live-readings/{node_id}", response_model=dict)
+async def get_live_reading_node(node_id: str):
+    """Return the latest full sensor reading for a single node."""
+    from api.main import state
+    reading = state["live_readings"].get(node_id)
+    if not reading:
+        raise HTTPException(status_code=404, detail=f"No live reading for {node_id}")
+    return reading
 
 
 @router.get("/risk-map", response_model=List[dict])

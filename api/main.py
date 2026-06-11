@@ -10,6 +10,7 @@ import json
 import os
 import time
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 from threading import Thread
 from typing import Dict, Set
 
@@ -28,6 +29,7 @@ from api.schemas import NodeStatus, FireAlert
 # Shared application state (in-memory; InfluxDB/SQLite are the persistent stores)
 state: Dict = {
     "node_status": {},      # node_id → NodeStatus
+    "live_readings": {},    # node_id → latest full sensor reading dict
     "active_alerts": {},    # alert_id → FireAlert
     "kafka_ok": False,
     "influx_ok": False,
@@ -49,6 +51,70 @@ async def broadcast(payload: dict):
         except Exception:
             disconnected.add(ws)
     _ws_clients.difference_update(disconnected)
+
+
+# ------------------------------------------------------------------
+# Demo / fallback simulator: uses SensorNetwork to produce real sensor
+# readings (temp, humidity, smoke, CO, wind, etc.) every 5 s.
+# Populates state["node_status"] AND state["live_readings"] so the
+# full sensor data is available via /sensors/live-readings.
+# ------------------------------------------------------------------
+async def _demo_simulator_task():
+    """
+    Ticks the full SensorNetwork every 5 s, storing complete sensor
+    readings in state["live_readings"] and updating node_status.
+    Writes each reading to SQLite for historical queries too.
+    Real Kafka data will overwrite entries if Docker comes back up.
+    """
+    from simulator.network import SensorNetwork
+    from simulator.fire_scenario import default_scenarios
+
+    start_time = datetime(2024, 7, 1, 12, 0, 0, tzinfo=timezone.utc)
+    scenarios = default_scenarios(44.0, -78.95, start_time)
+    network = SensorNetwork(
+        n_nodes=int(os.getenv("NUM_SENSOR_NODES", 100)),
+        area_km=float(os.getenv("SIMULATION_AREA_KM", 10)),
+        fire_scenarios=scenarios,
+        seed=42,
+    )
+
+    # Seed all nodes immediately so the map is populated at startup
+    readings = network.tick(sim_time=datetime.now(timezone.utc))
+    for r in readings:
+        payload = r.to_dict()
+        state["live_readings"][r.node_id] = payload
+        ns = NodeStatus(node_id=r.node_id, latitude=r.latitude, longitude=r.longitude)
+        ns.fire_risk = r.fire_risk
+        ns.last_seen = r.timestamp
+        ns.is_online = True
+        ns.battery_pct = r.battery_pct
+        state["node_status"][r.node_id] = ns
+
+    state["kafka_ok"] = True
+    logger.info(f"Demo mode: {len(readings)} nodes seeded with real sensor readings.")
+
+    while True:
+        await asyncio.sleep(5)
+        readings = network.tick(sim_time=datetime.now(timezone.utc))
+        db = state.get("sqlite")
+        for r in readings:
+            payload = r.to_dict()
+            state["live_readings"][r.node_id] = payload
+
+            ns = state["node_status"].get(r.node_id)
+            if not ns:
+                ns = NodeStatus(node_id=r.node_id, latitude=r.latitude, longitude=r.longitude)
+            ns.fire_risk = r.fire_risk
+            ns.last_seen = r.timestamp
+            ns.is_online = True
+            ns.battery_pct = r.battery_pct
+            state["node_status"][r.node_id] = ns
+
+            if db:
+                try:
+                    db.write_raw(payload)
+                except Exception:
+                    pass
 
 
 # ------------------------------------------------------------------
@@ -171,6 +237,8 @@ async def lifespan(app: FastAPI):
 
     t = Thread(target=_kafka_consumer_thread, daemon=True)
     t.start()
+
+    asyncio.create_task(_demo_simulator_task())
 
     yield
 

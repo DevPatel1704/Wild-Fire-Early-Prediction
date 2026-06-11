@@ -11,6 +11,10 @@ export const fetchAlerts = () => api.get("/alerts/active").then((r) => r.data);
 export const fetchSystemStatus = () => api.get("/predictions/system-status").then((r) => r.data);
 export const acknowledgeAlert = (alertId) =>
   api.post("/alerts/acknowledge", { alert_id: alertId }).then((r) => r.data);
+export const fetchLiveReading = (nodeId) =>
+  api.get(`/sensors/live-readings/${nodeId}`).then((r) => r.data);
+export const fetchNodeHistory = (nodeId, limit = 100) =>
+  api.get(`/sensors/readings/node/${nodeId}?limit=${limit}`).then((r) => r.data);
 
 export function connectWebSocket(onMessage) {
   const ws = new WebSocket(WS_URL);
