@@ -3,6 +3,7 @@ import FireMap from "./components/Map";
 import AlertPanel from "./components/AlertPanel";
 import SensorPanel from "./components/SensorPanel";
 import SensorReadingsPage from "./pages/SensorReadingsPage";
+import EvaluationPage from "./pages/EvaluationPage";
 import { fetchAlerts, fetchRiskMap, fetchSystemStatus, connectWebSocket } from "./services/api";
 
 const POLL_MS = 10000;
@@ -49,6 +50,9 @@ export default function App() {
   if (page === "sensor-readings") {
     return <SensorReadingsPage onBack={() => setPage("dashboard")} />;
   }
+  if (page === "evaluation") {
+    return <EvaluationPage onBack={() => setPage("dashboard")} />;
+  }
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", background: "#0f1117" }}>
@@ -83,6 +87,21 @@ export default function App() {
             }}
           >
             📊 Live Sensor Data
+          </button>
+          <button
+            onClick={() => setPage("evaluation")}
+            style={{
+              background: "#1e2d42",
+              border: "1px solid #00e676",
+              color: "#00e676",
+              padding: "6px 14px",
+              borderRadius: 6,
+              cursor: "pointer",
+              fontSize: 12,
+              fontWeight: 600,
+            }}
+          >
+            📈 Model Evaluation
           </button>
           <div style={{ color: "#aaa", fontSize: 12 }}>
             {lastUpdate ? `Updated: ${lastUpdate}` : "Loading..."}

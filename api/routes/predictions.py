@@ -1,5 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from api.schemas import PredictionResponse, SystemStatus
+import asyncio
+from functools import partial
 
 router = APIRouter(prefix="/predictions", tags=["predictions"])
 
@@ -19,6 +21,18 @@ async def get_system_status():
         ]),
         uptime_seconds=round(time.time() - state.get("start_time", time.time()), 1),
     )
+
+
+@router.get("/evaluation")
+async def get_evaluation():
+    """Run model evaluation on stored SQLite readings and return ROC/PR curves + metrics."""
+    from model.evaluate import compute_all
+    loop = asyncio.get_event_loop()
+    try:
+        result = await loop.run_in_executor(None, partial(compute_all, 100_000))
+        return result
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
 
 
 @router.get("/risk/{node_id}", response_model=PredictionResponse)
