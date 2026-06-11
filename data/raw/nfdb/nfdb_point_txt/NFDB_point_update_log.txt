@@ -1,0 +1,553 @@
+NFDB Agency POINT DATA Update Log:
+
+Refer to metadata for more complete information - https://cwfis.cfs.nrcan.gc.ca/downloads/nfdb/fire_pnt/current_version/
+
+**** June 13, 2024
+**** NFDB_point_20240613 version released
+
+AB: 
+- Missing reported fires identified in previous NFDB version for AB 2023
+- AB fire data updates for 2023 obtained from https://www.alberta.ca/wildfire-maps-and-data#jumplinks-2
+- This version includes AB points for 1959-2023;
+- Fire point data for 2023 have been updated/replaced in this version using source data;
+
+
+**** June 5, 2024
+**** NFDB_point_20240605 version released
+BC: 
+- BC fire data updates downloaded from DataBC website https://catalogue.data.gov.bc.ca/; 
+- This version includes BC points for 1950-2023;
+- Fire point data for 2023 have been updated in this version using source data;
+- Only records included where FIRE_TYPE = "fire" in source data;
+- The BC fire data is published by the BC Ministry of Forests, Lands and Natural Resource Operations - BC Wildfire Service 
+Licensed under Open Government License - British Columbia -- https://catalogue.data.gov.bc.ca/
+
+AB: 
+- AB fire data updates obtained from Alberta Agriculture and Forestry - Wildfire Management Branch - Wildfire Geospatial Intelligence Unit
+- This version includes AB points for 1959-2023;
+- Fire point data for 2023 have been updated in this version using source data;
+
+SK: 
+- SK fire data updates provided by agency;
+- This version of NFDB points includes SK points for 1959-2023;
+- Fire point data for 2023 have been updated in this version using source data;
+- Note that years 1959-1980 are incomplete as these years include only large fires > 200ha;
+
+MB:
+- MB fire data updates obtained from Manitoba Conservation Fire Program;
+- This version includes MB fire point data for years 1959-2023;
+- 2023 MB fire polygon centroids were used for this version;
+- Note that years 1959-1967 are incomplete as these years include only large fires > 200ha;
+- Also note that fire point data for 2000-2004 is not available from source agency, therefore point data (for 2000-2004) has been derived using fire polygon centroids;
+
+ON:
+- ON fire data updates downloaded from Ontario LIO website https://geohub.lio.gov.on.ca/;
+- This version includes ON fire point data for years 1959-2023;
+- Fire point data for 1976-2023 have been updated in this version using source data;
+- Note that years 1959-1975 are incomplete as these years include only large fires > 200 ha;
+- Note that the Ontario fire data has been produced by Natural Resources Canada under Licence with the Ontario Ministry of Natural Resources © Queen’s Printer for Ontario, 2024;
+
+QC: 
+- QC fire data updates downloaded from https://www.donneesquebec.ca/
+- This version includes QC fire point data for years 1959-2023;
+- 2023 QC fire point data updates were added to this version;
+- Note that years 1959-1971 include only data for large fires > 200 ha;
+- The Quebec open data licence agreement is available here https://www.donneesquebec.ca/fr/licence/#cc-by
+
+NS:
+- NS fire data updates provided by agency;
+- 2022 NS fire point data updates were added to this version;
+- This version includes NS fire point data for years 1960, 1961, 1963, 1980, 1987-2023;
+- Years 1960-1984 are incomplete as these years include only large fires > 200 ha;
+
+NB:
+- NB fire data updates provided by agency;
+- 2022 NB fire point data updates were added to this version;
+- This version includes NB fire point data for years 1980, 1982, 1983, 1985-2023;
+- Note that years < 1989 are incomplete as these years include only a small number of large fires;
+
+NL:
+- NL fire data provided by agency;
+- 2023 NL fire point data updates were added to this version;
+- This version includes NL fire point data for years 1955-2023;
+- Note that years < 1985 are incomplete as these years include only a small number of large fires > 200 ha;
+
+PEI:
+- No 2021 fire data updates were collected from PEI;
+- This version includes PEI fire point data for years 2018-2023;
+- 2020-2023 PEI fire point data updates were added to this version;
+
+YT:
+- YT fire data updates downloaded from https://mapservices.gov.yk.ca/;
+- This version includes YT fire point data for years 1946-2023;
+- 2023 YT fire point data updates were added to this version;
+
+NT:
+- NT fire data updates provided by agency;
+- This version includes NT fire point data for years 1959-2023;
+- 2023 NT fire point data updates were added to this version;
+- Agency abbreviation changed from 'NWT' to 'NT' in this version to correspond with standard naming convention.
+
+PC:
+- Parks fire data updates provided by agency;
+- 2023 PC fire point data updates were added to this version;
+- This version includes PC fire point data for years 1946-2023;
+
+
+
+**** April 9, 2024
+**** NFDB_point_20240409 version released
+
+BC: 
+- BC fire data updates downloaded from DataBC website https://catalogue.data.gov.bc.ca/; 
+- This version includes BC points for 1950-2022;
+- Fire point data for 2022 have been updated in this version using source data;
+- Only records included where FIRE_TYPE = "fire" in source data;
+- The BC fire data is published by the BC Ministry of Forests, Lands and Natural Resource Operations - BC Wildfire Service Licensed under Open Government License - British Columbia -- https://catalogue.data.gov.bc.ca/
+
+AB: 
+- AB fire data updates obtained from Alberta Agriculture and Forestry - Wildfire Management Branch - Wildfire Geospatial Intelligence Unit
+- This version includes AB points for 1959-2022;
+- Fire point data for 2022 have been updated in this version using source data;
+
+SK: 
+- SK fire data updates provided by agency;
+- This version of NFDB points includes SK points for 1959-2022;
+- Fire point data for 2022 have been updated in this version using source data;
+- Note that years 1959-1980 are incomplete as these years include only large fires > 200ha;
+
+MB:
+- MB fire data updates obtained from Manitoba Conservation Fire Program;
+- This version includes MB fire point data for years 1959-2022;
+- 2022 MB fire polygon centroids were used for this version;
+- Note that years 1959-1967 are incomplete as these years include only large fires > 200ha;
+- Also note that fire point data for 2000-2004 is not available from source agency, therefore point data (for 2000-2004) has been derived using fire polygon centroids;
+
+ON:
+- ON fire data updates downloaded from Ontario LIO website https://geohub.lio.gov.on.ca/;
+- This version includes ON fire point data for years 1959-2022;
+- Fire point data for 1976-2022 have been updated in this version using source data;
+- Note that years 1959-1975 are incomplete as these years include only large fires > 200 ha;
+- Note that the Ontario fire data has been produced by Natural Resources Canada under Licence with the Ontario Ministry of Natural Resources © Queen’s Printer for Ontario, 2022;
+
+QC: 
+- QC fire data updates downloaded from https://www.donneesquebec.ca/
+- This version includes QC fire point data for years 1959-2022;
+- 2022 QC fire point data updates were added to this version;
+- Note that years 1959-1971 include only data for large fires > 200 ha;
+- The Quebec open data licence agreement is available here https://www.donneesquebec.ca/fr/licence/#cc-by
+
+NS:
+- NS fire data updates provided by agency;
+- 2022 NS fire point data updates were added to this version;
+- This version includes NS fire point data for years 1960, 1961, 1963, 1980, 1987-2022;
+- Years 1960-1984 are incomplete as these years include only large fires > 200 ha;
+
+NB:
+- NB fire data updates provided by agency;
+- 2022 NB fire point data updates were added to this version;
+- This version includes NB fire point data for years 1980, 1982, 1983, 1985-2022;
+- Note that years < 1989 are incomplete as these years include only a small number of large fires;
+
+NL:
+- NL fire data provided by agency;
+- 2022 NL fire point data updates were added to this version;
+- This version includes NL fire point data for years 1955-2022;
+- Note that years < 1985 are incomplete as these years include only a small number of large fires > 200 ha;
+
+PEI:
+- No 2021 fire data updates were collected from PEI;
+- This version includes PEI fire point data for years 2018-2019;
+
+YT:
+- YT fire data updates downloaded from https://mapservices.gov.yk.ca/;
+- This version includes YT fire point data for years 1946-2022;
+- 2022 YT fire point data updates were added to this version;
+
+NT:
+- NT fire data updates provided by agency;
+- This version includes NT fire point data for years 1959-2022;
+- 2021 NT fire point data updates were added to this version;
+- Agency abbreviation changed from 'NWT' to 'NT' in this version to correspond with standard naming convention.
+
+PC:
+- Parks fire data updates provided by agency;
+- 2022 PC fire point data updates were added to this version;
+- This version includes PC fire point data for years 1946-2022;
+
+
+
+
+
+
+
+**** September 1, 2022
+**** NFDB_point_20220901 version released
+
+This version includes the following agency updates:
+
+BC:
+- BC 2021 fire data updates downloaded from DataBC website https://data.gov.bc.ca;
+- This version includes BC fire point data for years 1950-2021;
+- Fire point data for 2021 has been added/updated in this version using source data;
+
+AB:
+- AB 2021 fire data updates obtained from Alberta Agriculture and Forestry - Wildfire Management Branch - Wildfire Geospatial Intelligence Unit
+- AB historical point data obtained from https://wildfire.alberta.ca/resources/historical-data/historical-wildfire-database.aspx
+- This version includes AB fire point data for years 1959-2021;
+- Fire point data for 2020 has been added/updated in this version using source data;
+
+SK:
+- SK fire data updates provided by agency;
+- This version includes SK fire point data for years 1959-2021;
+- Fire point data for 2021 has been added/updated in this version using source data;
+- Note that years 1959-1980 are incomplete as these years include only large fires > 200ha;
+
+MB:
+- MB fire data updates obtained from Manitoba Conservation Fire Program;
+- This version includes MB fire point data for years 1959-2021;
+- Fire poly centroids for 2021 have been added in this version using source data;
+- Note that years 1959-1967 are incomplete as these years include only large fires > 200ha;
+- Also note that fire point data for 2000-2004 is not available from source agency, therefore point data (for 2000-2004) has been derived using fire polygon centroids;
+
+ON:
+- ON fire data updates downloaded from Ontario LIO website https://www.javacoeapp.lrc.gov.on.ca/geonetwork/srv/en/main.home;
+- This version includes ON fire point data for years 1959-2021;
+- 2021 fire points (for fires >= 40 ha) were created from centroids of ON 2021 fire poly data and added to this version;
+- Fire points for small fires < 40 ha are included for all years 1976-2021;
+- Note that years 1959-1975 are incomplete as these years include only large fires > 200 ha;
+- Note that Ontario fire point data is provided for fires < 40 ha only. Therefore, CFS has generated/included point data for for Ontario fires > 40 ha using the centroid of the provided fire polygon data;
+- Note that the Ontario fire data has been produced by Natural Resources Canada under Licence with the Ontario Ministry of Natural Resources © Queen’s Printer for Ontario, 2022;
+
+QC:
+- QC fire data updates downloaded from https://www.donneesquebec.ca
+- This version includes QC fire point data for years 1959-2021;
+- Fire point data for 2021 has been added/updated in this version using source data;
+- Note that years 1959-1971 include only data for large fires > 200 ha;
+- The Quebec open data licence agreement is available here https://www.donneesquebec.ca/fr/licence/#cc-by
+
+NT:
+- NT fire data updates provided by agency;
+- This version includes NT fire point data for years 1959-2021;
+- 2021 NT fire point data updates were added to this version;
+
+YT:
+- YT fire data updates provided by agency;
+- This version includes YT fire point data for years 1946-2021;
+- 2021 YT fire point data updates were added to this version;
+
+NS:
+- NS fire data updates provided by agency;
+- 2021 NS fire point data updates were added to this version;
+- This version includes NS fire point data for years 1960, 1961, 1963, 1980, 1987-2021;
+- Years 1960-1984 are incomplete as these years include only large fires > 200 ha;
+
+NB:
+- NB fire data updates provided by agency;
+- 2021 NB fire point data updates were added to this version;
+- This version includes NB fire point data for years 1980, 1982, 1983, 1985-2021;
+- Note that years < 1989 are incomplete as these years include only a small number of large fires;
+
+NL:
+- NL fire data provided by agency;
+- 2021 NL fire point data updates were added to this version;
+- This version includes NL fire point data for years 1955-2021;
+- Note that years < 1985 are incomplete as these years include only a small number of large fires > 200 ha;
+
+PEI:
+- No 2020-21 fire data updates were collected;
+- This version includes PEI fire point data for years 2018-2019;
+
+PC:
+- Parks fire data updates provided by agency;
+- 2021 PC fire point data updates were added to this version;
+- This version includes PC fire point data for years 1946-2021;
+
+
+
+
+
+
+
+
+**** September 16, 2021
+**** NFDB_point_20210916 version released
+
+This version includes the following agency updates:
+
+BC:
+- BC 2020 fire data updates downloaded from DataBC website https://data.gov.bc.ca;
+- This version includes BC fire point data for years 1950-2020;
+- Fire point data for 2020 has been added/updated in this version using source data;
+
+AB:
+- AB 2020 fire data updates obtained from Alberta Agriculture and Forestry - Wildfire Management Branch - Wildfire Geospatial Intelligence Unit
+- AB historical point data obtained from https://wildfire.alberta.ca/resources/historical-data/historical-wildfire-database.aspx
+- This version includes AB fire point data for years 1959-2020;
+- Fire point data for 2020 has been added/updated in this version using source data;
+
+SK:
+- SK fire data updates provided by agency;
+- This version includes SK fire point data for years 1959-2020;
+- Fire point data for 2020 has been added/updated in this version using source data;
+- Note that years 1959-1980 are incomplete as these years include only large fires > 200ha;
+
+MB:
+- MB fire data updates obtained from Manitoba Conservation Fire Program;
+- This version includes MB fire point data for years 1959-2020;
+- Fire point data for 2020 has been added/updated in this version using source data;
+- Note that years 1959-1967 are incomplete as these years include only large fires > 200ha;
+- Also note that fire point data for 2000-2004 is not available from source agency, therefore point data (for 2000-2004) has been derived using fire polygon centroids;
+
+ON:
+- ON fire data updates downloaded from Ontario LIO website https://www.javacoeapp.lrc.gov.on.ca/geonetwork/srv/en/main.home;
+- This version includes ON fire point data for years 1959-2020;
+- 2020 fire points (for fires >= 40 ha) were created from centroids of ON 2020 fire poly data and added to this version;
+- Fire points for small fires < 40 ha are included for all years 1976-2020;
+- Note that years 1959-1975 are incomplete as these years include only large fires > 200 ha;
+- Note that Ontario fire point data is provided for fires < 40 ha only. Therefore, CFS has generated/included point data for for Ontario fires > 40 ha using the centroid of the provided fire polygon data;
+- Note that the Ontario fire data has been produced by Natural Resources Canada under Licence with the Ontario Ministry of Natural Resources © Queen’s Printer for Ontario, 2021;
+
+QC:
+- QC fire data updates downloaded from https://www.donneesquebec.ca
+- This version includes QC fire point data for years 1959-2020;
+- Fire point data for 2020 has been added/updated in this version using source data;
+- Note that years 1959-1971 include only data for large fires > 200 ha;
+- The Quebec open data licence agreement is available here https://www.donneesquebec.ca/fr/licence/#cc-by
+
+NT:
+- NT fire data updates provided by agency;
+- This version includes NT fire point data for years 1959-2020;
+- 2020 NT fire point data updates were added to this version;
+
+YT:
+- YT fire data updates provided by agency;
+- This version includes YT fire point data for years 1946-2020;
+- 2020 YT fire point data updates were added to this version;
+
+NS:
+- NS fire data updates provided by agency;
+- 2020 NS fire point data updates were added to this version;
+- This version includes NS fire point data for years 1960, 1961, 1963, 1980, 1987-2020;
+- Years 1960-1984 are incomplete as these years include only large fires > 200 ha;
+
+NB:
+- NB fire data updates provided by agency;
+- 2020 NB fire point data updates were added to this version;
+- This version includes NB fire point data for years 1980, 1982, 1983, 1985-2020;
+- Note that years < 1989 are incomplete as these years include only a small number of large fires;
+
+NL:
+- NL fire data provided by agency;
+- 2020 NL fire point data updates were added to this version;
+- This version includes NL fire point data for years 1955-2020;
+- Note that years < 1985 are incomplete as these years include only a small number of large fires > 200 ha;
+
+PEI:
+- No 2020 fire data updates were collected;
+- This version includes PEI fire point data for years 2018-2019;
+
+PC:
+- Parks fire data updates provided by agency;
+- 2020 PC fire point data updates were added to this version;
+- This version includes PC fire point data for years 1946-2020;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**** October 29, 2020
+**** NFDB_pnt_20201029 version released
+AB:
+- AB records for years 1961-1982 were updated to correct the fire size (size_ha) as the source data for this period had been reported in acres. (Note the previous version NFDB_pnt_20200820 includes values in acres for AB fire records 1961-1982). This has been corrected in all NFDB point data and derived stats xls. 
+
+**** August 20, 2020
+**** NFDB_pnt_20200820 version released
+
+This version includes the following agency updates:
+
+BC:
+- BC fire data updates downloaded from DataBC website https://data.gov.bc.ca;
+- This version includes BC fire point data for years 1950-2019;
+- All historical fire point data for years 1950-2019 have been updated in this version using source data;
+
+AB:
+- AB 2019 fire data updates obtained from Alberta Agriculture and Forestry - Wildfire Management Branch - Wildfire Geospatial Intelligence Unit
+- AB historical point data obtained from https://wildfire.alberta.ca/resources/historical-data/historical-wildfire-database.aspx
+- This version includes AB fire point data for years 1959-2019;
+- All historical fire point data for years 1961-2019 were replaced using updates from source agency.
+
+SK:
+- SK fire data updates provided by agency;
+- This version includes SK fire point data for years 1959-2019;
+- All historical fire point data for years 1981-2019 have been updated in this version using source data;
+- Note that years 1959-1980 are incomplete as these years include only large fires > 200ha;
+
+MB:
+- MB fire data updates obtained from Manitoba Conservation Fire Program;
+- This version includes MB fire point data for years 1959-2019;
+- 2019 MB fire point data updates were added to this version;
+- Note that years 1959-1967 are incomplete as these years include only large fires > 200ha;
+- Also note that fire point data for 2000-2004 is not available from source agency, therefore point data (for 2000-2004) has been derived using fire polygon centroids;
+
+ON:
+- ON fire data updates downloaded from Ontario LIO website https://www.javacoeapp.lrc.gov.on.ca/geonetwork/srv/en/main.home;
+- This version includes ON fire point data for years 1959-2019;
+- 2019 fire points (for fires >= 40 ha) were created from centroids of ON 2019 fire poly data and added to this version;
+- Fire points for small fires < 40 ha were updated for all years 1976-2019;
+- Note that years 1959-1975 are incomplete as these years include only large fires > 200 ha;
+- Note that Ontario fire point data is provided for fires < 40 ha only. Therefore, CFS has generated/included point data for for Ontario fires > 40 ha using the centroid of the provided fire polygon data;
+- Note that the Ontario fire data has been produced by Natural Resources Canada under Licence with the Ontario Ministry of Natural Resources © Queen’s Printer for Ontario, 2020;
+
+QC:
+- QC fire data updates downloaded from https://www.donneesquebec.ca
+- This version includes QC fire point data for years 1959-2019;
+- 2019 QC fire point data updates were added to this version;
+- Note that years 1959-1971 include only data for large fires > 200 ha;
+- The Quebec open data licence agreement is available here https://www.donneesquebec.ca/fr/licence/#cc-by
+
+NT:
+- NT fire data updates provided by agency;
+- This version includes NT fire point data for years 1959-2019;
+- 2019 NT fire point data updates were added to this version;
+- Agency abbreviation changed from 'NWT' to 'NT' in this version to correspond with standard naming convention.
+
+
+YT:
+- YT fire data updates provided by agency;
+- This version includes YT fire point data for years 1946-2019;
+- 2019 YT fire point data updates were added to this version;
+
+NS:
+- NS fire data updates provided by agency;
+- 2019 NS fire point data updates were added to this version;
+- This version includes NS fire point data for years 1960, 1961, 1963, 1980, 1987-2019;
+- Years 1960-1984 are incomplete as these years include only large fires > 200 ha;
+
+NB:
+- NB fire data updates provided by agency;
+- 2019 NB fire point data updates were added to this version;
+- This version includes NB fire point data for years 1980, 1982, 1983, 1985-2019;
+- Note that years < 1989 are incomplete as these years include only a small number of large fires;
+
+NL:
+- NL fire data provided by agency;
+- 2019 NL fire point data updates were added to this version;
+- This version includes NL fire point data for years 1955-2019;
+- Note that years < 1985 are incomplete as these years include only a small number of large fires > 200 ha;
+
+PEI:
+- PEI fire data updates provided by agency;
+- This version includes PEI fire point data for years 2018-2019;
+
+PC:
+- Parks fire data updates provided by agency;
+- 2019 PC fire point data updates were added to this version;
+- This version includes PC fire point data for years 1946-2019;
+
+
+
+
+
+
+****
+
+August 1, 2019
+NFDB_point_20190801 version released
+
+This version includes the following agency updates:
+
+BC:
+- BC fire data updates downloaded from DataBC website https://data.gov.bc.ca;
+- 2018 BC fire point data updates were added to this version;
+- This version includes BC fire point data for years 1930-2018;
+
+AB:
+- AB fire data updates obtained from Alberta Agriculture and Forestry - Wildfire Management Branch - Wildfire Geospatial Intelligence Unit
+- 2018 AB fire point data updates were added to this version;
+- Point data for years 2006-2017 were replaced using updates from source agency.
+- This version includes AB fire point data for years 1959-2018;
+
+SK:
+- SK fire data updates provided by agency;
+- 2018 SK fire point data updates were added to this version;
+- This version includes SK fire point data for years 1959-2018;
+- Note that years 1959-1980 are incomplete as these years include only large fires > 200ha;
+
+MB:
+- MB fire data updates obtained from Manitoba Conservation Fire Program;
+- 2018 MB fire point data updates were added to this version;
+- This version includes MB fire point data for years 1959-2018;
+- Note that years 1959-1967 are incomplete as these years include only large fires > 200ha;
+- Also note that fire point data for 2000-2004 is not available from source agency, therefore point data (for 2000-2004) has been derived using fire polygon centroids;
+
+ON:
+- ON fire data updates downloaded from Ontario LIO website https://www.javacoeapp.lrc.gov.on.ca/geonetwork/srv/en/main.home;
+- 2018 ON fire point data updates were added to this version;
+- This version includes ON fire point data for years 1959-2018;
+- Note that years 1959-1975 are incomplete as these years include only large fires > 200 ha;
+- Note that Ontario fire point data is provided for fires < 40 ha only. CFS has generated/included point data for for Ontario fires > 40 ha using the centroid of the provided fire polygon data;
+- Note that the Ontario fire data has been produced by Natural Resources Canada under Licence with the Ontario Ministry of Natural Resources © Queen’s Printer for Ontario, 2019;
+
+QC:
+- QC fire data updates downloaded from https://www.donneesquebec.ca
+- 2018 QC fire point data updates were added to this version;
+- This version includes QC fire point data for years 1959-2018);
+- Note that years 1959-1971 include only data for large fires > 200 ha;
+- The Quebec open data licence agreement is available here https://www.donneesquebec.ca/fr/licence/#cc-by
+
+NS:
+- NS fire data updates provided by agency;
+- 2018 NS fire point data updates were added to this version;
+- This version includes NS fire point data for years 1960, 1961, 1963, 1980, 1987-2018;
+- Years 1960-1984 are incomplete as these years include only large fires > 200 ha;
+
+NB:
+- NB fire data updates provided by agency;
+- 2018 NB fire point data updates were added to this version;
+- This version includes NB fire point data for years 1980, 1982, 1983, 1985-2018;
+- Note that years < 1989 are incomplete as these years include only a small number of large fires;
+
+NL:
+- NL fire data provided by agency;
+- 2017 and 2018 NL fire point data updates were added to this version;
+- This version includes NL fire point data for years 1955-2018;
+- Note that years < 1985 are incomplete as these years include only a small number of large fires > 200 ha;
+
+PEI
+- Data collected from agency and is being assessed before being included.
+
+YT:
+- YT fire data updates downloaded from Yukon Wildland Fire Management website http://www.community.gov.yk.ca/firemanagement/wfarchives.html
+- 2018 YT fire point data updates were added to this version;
+- This version includes YT fire point data for years 1946-2018;
+
+NT:
+- NWT fire data updates provided by agency;
+- 2018 NT fire point data updates were added to this version;
+- This version includes NT fire point data for years 1959-2018;
+
+PC:
+- Parks fire data updates provided by agency;
+- 2018 PC fire point data updates were added to this version;
+- This version includes PC fire point data for years 1946-2018;
+
+GENERAL_VERSION_NOTES:
+- Attributes included for ecozone/ecoregion/ecodistrict
+
+
+* Refer to Metadata for more detailed information - http://cwfis.cfs.nrcan.gc.ca/downloads/nfdb/fire_pnt/current_version/

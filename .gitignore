@@ -37,22 +37,23 @@ ENV/
 !.env.example
 
 # ─────────────────────────────────────────────
-#  Model Checkpoints & Large Artifacts
+#  Large Raw Data (too big for GitHub — use samples instead)
+#  Run  python data/generate_data.py  to regenerate these.
 # ─────────────────────────────────────────────
-model/checkpoints/*.pt
-model/checkpoints/*.pth
-model/checkpoints/*.ckpt
-# Uncomment the line below if you want to track the checkpoint in git
-# !model/checkpoints/gat_lstm_best.pt
+data/raw/simulated_readings.csv
+data/raw/real_sensor_training.csv
+data/processed/features.csv
 
 # ─────────────────────────────────────────────
-#  Data Files  (can be regenerated)
+#  Database (regenerated automatically at runtime)
 # ─────────────────────────────────────────────
-data/raw/
-data/processed/
-data/*.db
-data/wildfire.db
-*.csv
+*.db
+*.sqlite
+*.sqlite3
+
+# ─────────────────────────────────────────────
+#  Other large binary / geo formats
+# ─────────────────────────────────────────────
 *.parquet
 *.feather
 *.h5
@@ -65,7 +66,6 @@ data/wildfire.db
 *.dbf
 *.prj
 *.cpg
-*.zip
 
 # ─────────────────────────────────────────────
 #  Logs
@@ -73,13 +73,6 @@ data/wildfire.db
 logs/
 *.log
 *.log.*
-
-# ─────────────────────────────────────────────
-#  SQLite
-# ─────────────────────────────────────────────
-*.db
-*.sqlite
-*.sqlite3
 
 # ─────────────────────────────────────────────
 #  Node.js / React Dashboard
@@ -105,21 +98,14 @@ docker-volumes/
 # ─────────────────────────────────────────────
 #  IDEs & Editors
 # ─────────────────────────────────────────────
-# VS Code
 .vscode/
 *.code-workspace
-
-# PyCharm / IntelliJ
 .idea/
 *.iml
 *.iws
 *.ipr
-
-# Jupyter
 .ipynb_checkpoints/
 *.ipynb
-
-# Vim / Emacs
 *.swp
 *.swo
 *~
@@ -129,23 +115,17 @@ docker-volumes/
 # ─────────────────────────────────────────────
 #  Operating System
 # ─────────────────────────────────────────────
-# Windows
 Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 *.lnk
-
-# macOS
 .DS_Store
 .AppleDouble
 .LSOverride
 ._*
 .Spotlight-V100
 .Trashes
-
-# Linux
-*~
 
 # ─────────────────────────────────────────────
 #  Testing & Coverage
