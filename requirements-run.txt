@@ -1,0 +1,29 @@
+# Minimal requirements to run the project (API + dashboard demo mode).
+# Does NOT include training, data-preprocessing, or geo-processing packages.
+
+# API framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+websockets>=12.0
+pydantic>=2.4.0
+
+# ML model inference
+torch>=2.1.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Simulator
+scipy>=1.10.0
+pandas>=2.0.0
+
+# Storage
+influxdb-client>=1.38.0
+
+# Kafka (fails gracefully if broker not running)
+kafka-python>=2.0.2
+
+# Utilities
+python-dotenv>=1.0.0
+loguru>=0.7.0
+requests>=2.31.0
+tqdm>=4.66.0

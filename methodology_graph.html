@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wildfire Detection — Project Methodology</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f1117;
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    color: #ff6b35;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 40px;
+  }
+
+  .pipeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ── Layer row ── */
+  .layer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  /* ── Box ── */
+  .box {
+    border-radius: 12px;
+    padding: 14px 20px;
+    text-align: center;
+    min-width: 140px;
+    flex: 1;
+    max-width: 200px;
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .box .icon { font-size: 1.6rem; margin-bottom: 6px; }
+  .box .label { font-size: 0.82rem; font-weight: 600; color: #fff; }
+  .box .detail { font-size: 0.70rem; color: #aaa; margin-top: 4px; line-height: 1.4; }
+
+  /* colours per layer */
+  .c-sensor  { background: #1a2a1a; border-color: #3a7a3a; }
+  .c-kafka   { background: #1a1a2e; border-color: #4a4aaa; }
+  .c-agg     { background: #1e1a2e; border-color: #7a4aaa; }
+  .c-model   { background: #2a1a1a; border-color: #aa4a3a; }
+  .c-alert   { background: #2a1e10; border-color: #cc7722; }
+  .c-store   { background: #101e2a; border-color: #2277aa; }
+  .c-viz     { background: #1a1e10; border-color: #77aa22; }
+
+  /* ── Arrow between layers ── */
+  .arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2px 0;
+  }
+  .arrow .line {
+    width: 2px;
+    height: 28px;
+    background: linear-gradient(to bottom, #555, #888);
+  }
+  .arrow .head {
+    width: 0; height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid #888;
+  }
+  .arrow .tag {
+    font-size: 0.68rem;
+    color: #666;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Horizontal connector inside a layer ── */
+  .h-arrow {
+    font-size: 1.2rem;
+    color: #555;
+    flex-shrink: 0;
+  }
+
+  /* ── Wide single box ── */
+  .box-wide {
+    max-width: 680px;
+    width: 100%;
+  }
+
+  /* ── Split row (two boxes side by side) ── */
+  .split {
+    display: flex;
+    gap: 16px;
+    max-width: 500px;
+    width: 100%;
+    justify-content: center;
+  }
+  .split .box { max-width: 220px; }
+
+  /* ── Badge chips ── */
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; margin-top: 8px; }
+  .chip {
+    font-size: 0.65rem;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 2px 8px;
+    color: #ccc;
+  }
+
+  /* ── Stats bar ── */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat .val { font-size: 1.5rem; font-weight: 700; color: #ff6b35; }
+  .stat .lbl { font-size: 0.72rem; color: #666; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<h1>🔥 Wildfire Early Detection System</h1>
+<p class="subtitle">Real-time IoT Data Analytics Pipeline — Project Methodology</p>
+
+<div class="pipeline">
+
+  <!-- Layer 1: Sensors -->
+  <div class="layer">
+    <div class="box c-sensor box-wide">
+      <div class="icon">📡</div>
+      <div class="label">IoT Sensor Network — 100 Nodes</div>
+      <div class="chips">
+        <span class="chip">🌡 Temperature</span>
+        <span class="chip">💧 Humidity</span>
+        <span class="chip">💨 Wind Speed</span>
+        <span class="chip">🌫 Smoke Density</span>
+        <span class="chip">🔥 Fire Risk Score</span>
+        <span class="chip">🔋 Battery %</span>
+      </div>
+      <div class="detail" style="margin-top:8px;">Publishes every 30 s → 12,000 msg / hour</div>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <div class="line"></div><div class="head"></div>
+    <div class="tag">sensor.raw (Kafka topic)</div>
+  </div>
+
+  <!-- Layer 2: Kafka -->
+  <div class="layer">
+    <div class="box c-kafka box-wide">
+      <div class="icon">⚡</div>
+      <div class="label">Apache Kafka — Message Broker</div>
+      <div class="chips">
+        <span class="chip">sensor.raw</span>
+        <span class="chip">sensor.aggregated</span>
+        <span class="chip">fire.alerts</span>
+      </div>
+      <div class="detail" style="margin-top:8px;">Decouples producers from consumers · fault-tolerant · low-latency</div>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <div class="line"></div><div class="head"></div>
+    <div class="tag">1-minute tumbling window</div>
+  </div>
+
+  <!-- Layer 3: Aggregator -->
+  <div class="layer">
+    <div class="box c-agg box-wide">
+      <div class="icon">🧮</div>
+      <div class="label">Stream Processor — Window Aggregation</div>
+      <div class="chips">
+        <span class="chip">mean · max · min per node</span>
+        <span class="chip">rolling fire risk</span>
+        <span class="chip">node graph edges</span>
+      </div>
+      <div class="detail" style="margin-top:8px;">Aggregates 100 nodes × 60s readings → feature tensor for model</div>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <div class="line"></div><div class="head"></div>
+    <div class="tag">feature tensor [nodes × timesteps × features]</div>
+  </div>
+
+  <!-- Layer 4: Model -->
+  <div class="layer">
+    <div class="box c-model box-wide">
+      <div class="icon">🧠</div>
+      <div class="label">GAT-LSTM Model — Fire Risk Inference</div>
+      <div class="chips">
+        <span class="chip">Graph Attention Network (spatial)</span>
+        <span class="chip">LSTM (temporal)</span>
+        <span class="chip">240,385 parameters</span>
+        <span class="chip">AUC = 0.9998</span>
+        <span class="chip">Trained on 3.84M rows (NFDB)</span>
+      </div>
+      <div class="detail" style="margin-top:8px;">
+        GAT learns which neighbouring nodes are most correlated<br>
+        LSTM captures fire progression over time → outputs risk score 0–1
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <div class="line"></div><div class="head"></div>
+    <div class="tag">risk score ≥ 0.80 → alert</div>
+  </div>
+
+  <!-- Layer 5: Alerts -->
+  <div class="layer">
+    <div class="box c-alert box-wide">
+      <div class="icon">🚨</div>
+      <div class="label">Alert Engine</div>
+      <div class="chips">
+        <span class="chip">🟠 HIGH  ≥ 0.80</span>
+        <span class="chip">🔴 CRITICAL  ≥ 0.90</span>
+        <span class="chip">node ID + GPS + timestamp</span>
+      </div>
+      <div class="detail" style="margin-top:8px;">Published to fire.alerts Kafka topic · acknowledged by API</div>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <div class="line"></div><div class="head"></div>
+    <div class="tag">write to storage</div>
+  </div>
+
+  <!-- Layer 6: Storage (split) -->
+  <div class="split">
+    <div class="box c-store">
+      <div class="icon">📊</div>
+      <div class="label">InfluxDB</div>
+      <div class="detail">Time-series sensor aggregates<br>& alert history</div>
+    </div>
+    <div class="box c-store">
+      <div class="icon">🗄️</div>
+      <div class="label">SQLite</div>
+      <div class="detail">Raw sensor readings<br>& alert records</div>
+    </div>
+  </div>
+
+  <div class="arrow">
+    <div class="line"></div><div class="head"></div>
+    <div class="tag">REST API</div>
+  </div>
+
+  <!-- Layer 7: Visualization (split) -->
+  <div class="split">
+    <div class="box c-viz">
+      <div class="icon">🌐</div>
+      <div class="label">FastAPI</div>
+      <div class="detail">/alerts/active<br>/predictions/nodes<br>/system-status</div>
+    </div>
+    <div class="box c-viz">
+      <div class="icon">🗺️</div>
+      <div class="label">React Dashboard</div>
+      <div class="detail">Live map · alert panel<br>risk gauge · node status</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat"><div class="val">100</div><div class="lbl">Sensor Nodes</div></div>
+  <div class="stat"><div class="val">12K</div><div class="lbl">Messages / Hour</div></div>
+  <div class="stat"><div class="val">3.84M</div><div class="lbl">Training Rows</div></div>
+  <div class="stat"><div class="val">0.9998</div><div class="lbl">Model AUC</div></div>
+  <div class="stat"><div class="val">&lt;1 min</div><div class="lbl">Detection Latency</div></div>
+  <div class="stat"><div class="val">60 s</div><div class="lbl">Window Size</div></div>
+</div>
+
+</body>
+</html>

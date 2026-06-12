@@ -1,0 +1,2 @@
+data/raw/nfdb/nfdb_point_txt/NFDB_point_20240613.txt filter=lfs diff=lfs merge=lfs -text
+data/raw/nfdb/nfdb_point_txt/NFDB_point_20240613.txt.xml filter=lfs diff=lfs merge=lfs -text

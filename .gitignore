@@ -1,0 +1,156 @@
+# ─────────────────────────────────────────────
+#  Python
+# ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env.local
+.Python
+
+# ─────────────────────────────────────────────
+#  Environment & Secrets
+# ─────────────────────────────────────────────
+.env
+# Keep the example so teammates can configure their own
+!.env.example
+
+# ─────────────────────────────────────────────
+#  Large Raw Data (too big for GitHub — use samples instead)
+#  Run  python data/generate_data.py  to regenerate these.
+# ─────────────────────────────────────────────
+data/raw/simulated_readings.csv
+data/raw/real_sensor_training.csv
+data/processed/features.csv
+
+# ─────────────────────────────────────────────
+#  Database (regenerated automatically at runtime)
+# ─────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ─────────────────────────────────────────────
+#  Other large binary / geo formats
+# ─────────────────────────────────────────────
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.nc
+*.tif
+*.tiff
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+
+# ─────────────────────────────────────────────
+#  Logs
+# ─────────────────────────────────────────────
+logs/
+*.log
+*.log.*
+
+# ─────────────────────────────────────────────
+#  Node.js / React Dashboard
+# ─────────────────────────────────────────────
+dashboard/node_modules/
+dashboard/build/
+dashboard/.pnp
+dashboard/.pnp.js
+dashboard/.env.local
+dashboard/.env.development.local
+dashboard/.env.test.local
+dashboard/.env.production.local
+dashboard/npm-debug.log*
+dashboard/yarn-debug.log*
+dashboard/yarn-error.log*
+
+# ─────────────────────────────────────────────
+#  Docker
+# ─────────────────────────────────────────────
+docker-volumes/
+.docker/
+
+# ─────────────────────────────────────────────
+#  IDEs & Editors
+# ─────────────────────────────────────────────
+.vscode/
+*.code-workspace
+.idea/
+*.iml
+*.iws
+*.ipr
+.ipynb_checkpoints/
+*.ipynb
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+# ─────────────────────────────────────────────
+#  Operating System
+# ─────────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# ─────────────────────────────────────────────
+#  Testing & Coverage
+# ─────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+coverage.xml
+*.cover
+junit.xml
+test-results/
+
+# ─────────────────────────────────────────────
+#  Miscellaneous
+# ─────────────────────────────────────────────
+*.bak
+*.tmp
+*.temp
+*.pid
+*.seed
+.cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+profile_output/
