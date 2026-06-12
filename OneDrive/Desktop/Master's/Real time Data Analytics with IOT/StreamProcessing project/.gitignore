@@ -1,0 +1,29 @@
+# generated data - recreated by prepare_data.py
+data/patients_streaming.csv
+data/stream_input/
+
+# spark checkpoint state
+checkpoint/
+C:/spark_ckpt/
+
+# spark internal jvm artifacts and logs
+artifacts/
+hs_err_pid*.log
+replay_pid*.log
+spark_output.log
+
+# hadoop local files
+hadoop/
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# jupyter
+.ipynb_checkpoints/
+
+# ide
+.vscode/
+.idea/
